@@ -37,8 +37,8 @@ public class RCM {
         matriks[i][j]=0;
       }
     }
-    readFile("input.txt", "output.txt");
-    urutanJalur =  new int[baris];
+    readFile("input2.txt", "output.txt");
+    urutanJalur =  new int[baris+1];
     for(i=0;i<baris;i++){
       urutanJalur[i]=infinite;
     }
@@ -52,13 +52,15 @@ public class RCM {
     pilihan=0;
     minimum=999;
     urutanJalur[0]=0;
+    urutanJalur[baris]=0;
   }
 
   public void buatGraf() throws IOException {
     File file = new File("GrafRCM.puml");
     file.createNewFile();
     FileWriter writer = new FileWriter(file);
-    int i,j;
+    int i,j,k;
+    k=0;
     Integer temp;
     writer.write("@startdot\n");
     writer.write("digraph graf {\n");
@@ -71,6 +73,10 @@ public class RCM {
           writer.write(" [label=");
           temp=matriks[i][j];
           writer.write(String.valueOf(temp));
+          if((j==urutanJalur[findUrutan(i)+1])&&(i==urutanJalur[findUrutan(i)])){
+            writer.write(", color=Blue");
+
+          }
           writer.write("];\n");
         }
       }
@@ -79,6 +85,18 @@ public class RCM {
     writer.write("@enddot");
     writer.flush();
     writer.close();
+    }
+
+
+    public int findUrutan(int node){
+      int i,n;
+      n=0;
+      for(i=0;i<baris;i++){
+        if(urutanJalur[i]==node){
+          n=i;
+        }
+      }
+      return n;
     }
 
   public void readFile(String namaInput, String namaOutput) throws IOException {
