@@ -11,25 +11,15 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        RCM test = new RCM();
-        //test.readFile("input.txt", "output.txt");
-        System.out.println(test.getBaris());
-        System.out.println(test.getKolom());
-        test.printMatriks(test.getMatriks());
-        //test.printMatriks(test.getMatriksFix());
+        //RCM test = new RCM();
+        BTL test2 = new BTL();
+        int costLokal;
+        //test.tampilkanSolusiRCM();
+        test2.printMatriks(test2.matriks);
+        //test2.testCost();
+        test2.solveBTL();
+        test2.printEdgeMinimum();
         System.out.println();
-       // System.out.println("Hasil Reduksi :");
-        //System.out.println(test.cekBaris(0));
-        //test.reduceCost();
-       // System.out.println(test.getCost());
-        //test.printMatriks(test.getTempMatriks());
-        //test.printMatriks(test.getTempMin());
-        // write your code here
-        test.solveRCM();
-        test.printUrutan();
-        System.out.println(test.getCost());
-        test.buatGraf();
-
-
+        System.out.println(test2.cost);
     }
 }

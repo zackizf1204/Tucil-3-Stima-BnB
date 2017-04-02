@@ -37,7 +37,7 @@ public class RCM {
         matriks[i][j]=0;
       }
     }
-    readFile("input2.txt", "output.txt");
+    readFile("input.txt", "output.txt");
     urutanJalur =  new int[baris+1];
     for(i=0;i<baris;i++){
       urutanJalur[i]=infinite;
@@ -185,14 +185,11 @@ public class RCM {
             copyMatriksFix(tempMatriks);
           }
         }
-        System.out.println(costLokal);
       }
       pilihan = temp;
       urutanJalur[k]=pilihan;
       k++;
       copyTempMin(matriksFix);
-      printMatriks(tempMin);
-      System.out.println();
       cost=cost+minimum;
     }
   }
@@ -236,6 +233,18 @@ public class RCM {
         }
       }
     }
+  }
+
+  public void tampilkanSolusiRCM() throws InterruptedException, IOException {
+    System.out.print("Jumlah simpul : ");
+    System.out.println(getBaris());
+    System.out.println("Matriks input : ");
+    printMatriks(getMatriks());
+    System.out.println();
+    solveRCM();
+    System.out.print("Jumlah cost : ");
+    System.out.println(getCost());
+    buatGraf();
   }
 
   public boolean cekKolom(int inputKolom){
