@@ -11,15 +11,19 @@ import java.io.*;
 public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        //RCM test = new RCM();
+        RCM test = new RCM();
         BTL test2 = new BTL();
-        int costLokal;
-        //test.tampilkanSolusiRCM();
-        test2.printMatriks(test2.matriks);
-        //test2.testCost();
-        test2.solveBTL();
-        test2.printEdgeMinimum();
+
+        long startTime = System.currentTimeMillis();
+        test.tampilkanSolusiRCM();
+        long endTime = System.currentTimeMillis();
+        System.out.println("That took " + (endTime - startTime) + " milliseconds");
+
         System.out.println();
-        System.out.println(test2.cost);
+
+        long startTime2 = System.currentTimeMillis();
+        test2.tampilkanSolusiBTS();
+        long endTime2 = System.currentTimeMillis();
+        System.out.println("That took " + (endTime2 - startTime2) + " milliseconds");
     }
 }

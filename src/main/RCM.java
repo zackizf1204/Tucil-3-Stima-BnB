@@ -194,12 +194,6 @@ public class RCM {
     }
   }
 
-  public void printUrutan(){
-    int i;
-    for(i=0;i<baris;i++){
-      System.out.println(urutanJalur[i]);
-    }
-  }
 
   public void set(int x, int y, int value) {
     if (x >= matriks.length) {
@@ -236,12 +230,14 @@ public class RCM {
   }
 
   public void tampilkanSolusiRCM() throws InterruptedException, IOException {
+    System.out.println("Reduced Cost Matrix");
     System.out.print("Jumlah simpul : ");
     System.out.println(getBaris());
     System.out.println("Matriks input : ");
     printMatriks(getMatriks());
     System.out.println();
     solveRCM();
+    printUrutan();
     System.out.print("Jumlah cost : ");
     System.out.println(getCost());
     buatGraf();
@@ -316,6 +312,18 @@ public class RCM {
     costLokal=costLokal+inputMin;
   }
 
+  public void printUrutan(){
+    int i;
+    System.out.print("Tur terpendek : [ ");
+    for(i=0;i<baris+1;i++){
+      System.out.print(urutanJalur[i]);
+      if(i!=baris){
+        System.out.print(" - ");
+      }
+    }
+    System.out.print(" ]");
+    System.out.println();
+  }
 
   public int cariMinimumKolom(int inputKolom){
     int i;
