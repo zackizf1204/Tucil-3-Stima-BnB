@@ -37,7 +37,7 @@ public class RCM {
         matriks[i][j]=0;
       }
     }
-    readFile("input.txt", "output.txt");
+    readFile("inputRCM2.txt", "output.txt");
     urutanJalur =  new int[baris+1];
     for(i=0;i<baris;i++){
       urutanJalur[i]=infinite;
@@ -67,9 +67,9 @@ public class RCM {
     for(i=0;i<baris;i++){
       for(j=0;j<kolom;j++){
         if(matriks[i][j]!=infinite) {
-          writer.write(i+49);
+          writer.write(String.valueOf(i+1));
           writer.write(" -> ");
-          writer.write(j+49);
+          writer.write(String.valueOf(j+1));
           writer.write(" [label=");
           temp=matriks[i][j];
           writer.write(String.valueOf(temp));
@@ -316,7 +316,7 @@ public class RCM {
     int i;
     System.out.print("Tur terpendek : [ ");
     for(i=0;i<baris+1;i++){
-      System.out.print(urutanJalur[i]);
+      System.out.print(urutanJalur[i]+1);
       if(i!=baris){
         System.out.print(" - ");
       }

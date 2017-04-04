@@ -243,15 +243,6 @@ public class BTL {
     }
   }
 
-  public void testCost(){
-    queueUrutan[1][0]=0;
-    queueUrutan[1][1]=1;
-    queueUrutan[1][2]=2;
-    queueUrutan[1][3]=3;
-    queueUrutan[1][4]=4;
-    queueUrutan[1][5]=5;
-    queueUrutan[1][6]=0;
-  }
   public void solveBTL() throws IOException {
     queueUrutan[0][0]=0;
     queueUrutan[0][kolom]=0;
@@ -260,25 +251,7 @@ public class BTL {
     int i,j,k,l;
     queueCost[0]=hitungCost(0);
     costMinimum();
-    //System.out.println(nodeMin);
     while(queueUrutan[nodeMin][kolom+1]<baris){
-      /*for(l=0;l<jumlahJalur+1;l++){
-        System.out.println(nodeHidup[l]);
-      }
-      System.out.println();
-      System.out.println(queueUrutan[nodeMin][kolom+1]);
-      System.out.println(nodeMin);
-      for(i=0;i<jumlahJalur+1;i++){
-        for(j=0;j<kolom+2;j++){
-          if(j==kolom+1){
-            System.out.println(queueUrutan[i][j]);
-          }
-          else{
-            System.out.print(queueUrutan[i][j]);
-            System.out.print(" ");
-          }
-        }
-      }*/
       for(i=0;i<baris;i++){
         if(cekQueue(nodeMin,i)==false){
           for(j=0;j<queueUrutan[nodeMin][kolom+1];j++){
@@ -300,7 +273,7 @@ public class BTL {
     buatGraf();
   }
 
-  public  void tampilkanSolusiBTS() throws IOException {
+  public  void tampilkanSolusiBTL() throws IOException {
     System.out.println("Bobot Tur Lengkap");
     System.out.print("Jumlah simpul : ");
     System.out.println(baris);
@@ -317,7 +290,7 @@ public class BTL {
     int i;
     System.out.print("Tur terpendek : [ ");
     for(i=0;i<baris+1;i++){
-      System.out.print(urutanJalur[i]);
+      System.out.print(urutanJalur[i]+1);
       if(i!=baris){
         System.out.print(" - ");
       }
