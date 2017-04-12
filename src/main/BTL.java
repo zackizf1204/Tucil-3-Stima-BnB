@@ -41,18 +41,18 @@ public class BTL {
     for(i=0;i<baris;i++){
       urutanJalur[i]=infinite;
     }
-    queueUrutan = new int[factorial(baris)*baris][kolom+2];
-    for(i=0;i<factorial(baris)*baris;i++){
+    queueUrutan = new int[factorial(baris)][kolom+2];
+    for(i=0;i<factorial(baris);i++){
       for(j=0;j<kolom+2;j++){
         queueUrutan[i][j]=infinite;
       }
     }
-    nodeHidup = new boolean[factorial(baris)*baris];
-    for(i=0;i<factorial(baris)*baris;i++){
+    nodeHidup = new boolean[factorial(baris)];
+    for(i=0;i<factorial(baris);i++){
       nodeHidup[i]=false;
     }
-    queueCost = new int[factorial(baris)*baris];
-    for(i=0;i<factorial(baris)*baris;i++){
+    queueCost = new int[factorial(baris)];
+    for(i=0;i<factorial(baris);i++){
       queueCost[i]=infinite;
     }
     tempMatriks= new int[baris][kolom];
@@ -284,6 +284,8 @@ public class BTL {
     printUrutan();
     System.out.print("Jumlah cost : ");
     System.out.println(cost);
+    System.out.print("Jumlah simpul pohon : ");
+    System.out.println(jumlahJalur);
   }
 
   public void printUrutan(){

@@ -25,6 +25,7 @@ public class RCM {
   private int costLokal;
   private int[] urutanJalur;
   private int pilihan;
+  private int jumlahJalur;
 
 
   public RCM() throws IOException{
@@ -53,6 +54,7 @@ public class RCM {
     minimum=999;
     urutanJalur[0]=0;
     urutanJalur[baris]=0;
+    jumlahJalur=0;
   }
 
   public void buatGraf() throws IOException {
@@ -179,6 +181,7 @@ public class RCM {
           infiniteKolom(j);
           infiniteNode(j);
           reduceCost();
+          jumlahJalur++;
           if(costLokal < minimum){
             temp =j;
             minimum=costLokal;
@@ -241,6 +244,8 @@ public class RCM {
     System.out.print("Jumlah cost : ");
     System.out.println(getCost());
     buatGraf();
+    System.out.print("Jumlah simpul tree : ");
+    System.out.println(jumlahJalur);
   }
 
   public boolean cekKolom(int inputKolom){
